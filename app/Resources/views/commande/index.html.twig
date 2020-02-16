@@ -1,49 +1,5 @@
-{% extends 'base.html.twig' %}
-
-{#{% block body %}
-    <h1>Commandes list</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Id_commande</th>
-                <th>Nomproduit</th>
-                <th>Idfournisseur</th>
-                <th>Idcategorie</th>
-                <th>Quantitecammande</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for commande in commandes %}
-            <tr>
-                <td><a href="{{ path('commande_show', { 'id_commande': commande.id_commande }) }}">{{ commande.idcommande }}</a></td>
-                <td>{{ commande.nomProduit }}</td>
-                <td>{{ commande.idFournisseur }}</td>
-                <td>{{ commande.idCategorie }}</td>
-                <td>{{ commande.quantiteCammande }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('commande_show', { 'id_commande': commande.id_commande }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('commande_edit', { 'id_commande': commande.id_commande }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('commande_new') }}">Create a new commande</a>
-        </li>
-    </ul>
-{% endblock %}#}
-{% block body %}
+{% extends '@Backoffice/base.html.twig' %}
+{% block content %}
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>

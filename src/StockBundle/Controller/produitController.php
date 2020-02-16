@@ -89,7 +89,11 @@ class produitController extends Controller
         ));
     }
 
-
+    /**
+     * Deletes a produit entity.
+     *
+     * @Route("/{reference}", name="produit_delete" , methods={"DELETE"})
+     */
 
     public function deleteAction(Request $request)
     {

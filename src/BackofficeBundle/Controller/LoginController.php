@@ -2,18 +2,19 @@
 
 namespace BackofficeBundle\Controller;
 
-use BackofficeBundle\Entity\Fournisseur;
-use BackofficeBundle\Form\EmployeeType;
-use BackofficeBundle\Form\FournisseurType;
-use Symfony\Bridge\Doctrine\Tests\Fixtures\Employee;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 
-class Login extends Controller
+class LoginController extends Controller
 {
-    public function login()
+    public function loginAction()
     {
-        return $this->render('login.html.twig');
+        return $this->render('@Backoffice/login.html.twig');
 
+    }
+    public function IndexAction()
+    {
+        return $this->render('@Backoffice/Employee/first_page.html.twig');
 
+    }
 }

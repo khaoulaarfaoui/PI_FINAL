@@ -1,9 +1,44 @@
-backoffice:
-    resource: "@BackofficeBundle/Resources/config/routing.xml"
+front_office:
+    resource: "@FrontOfficeBundle/Resources/config/routing.yml"
     prefix:   /
 
+backoffice:
+    resource: "@BackofficeBundle/Resources/config/routing.yml"
+    prefix:   /
+blog:
+    resource: "@BlogBundle/Resources/config/routing.yml"
+    prefix:   /
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+stock:
+    resource: "@StockBundle/Resources/config/routing.yml"
+    prefix:   /
+stock_commande:
+    resource: "@StockBundle/Controller/commandeController.php"
+    type:     annotation
+
+stock_produit:
+    resource: "@StockBundle/Controller/produitController.php"
+    type:     annotation
+
+stock_categorie:
+    resource: "@StockBundle/Controller/categorieController.php"
+    type:     annotation
+facture_reclamation:
+    resource: "@FactureBundle/Controller/ReclamationController.php"
+    type:     annotation
+
+facture_facture:
+    resource: "@FactureBundle/Controller/FactureController.php"
+    type:     annotation
+facture:
+    resource: "@FactureBundle/Resources/config/routing.yml"
+    prefix:   /
+
+easy_admin_bundle:
+    resource: "@EasyAdminBundle/Controller/"
+    type:     annotation
+    prefix:   /admin

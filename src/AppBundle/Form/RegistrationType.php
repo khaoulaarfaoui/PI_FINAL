@@ -8,14 +8,10 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 class RegistrationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
-    {
+    {   $builder->add('email');
+        $builder->add('username');
         $builder->add('first_name');
         $builder->add('last_name');
-        $builder->add('type', ChoiceType::class, array('label' => 'Type ',
-        'choices' => array(' AGENT' => 'ROLE_AGENT',
-            'CLIENT' => 'ROLE_CLIENT'),
-        'required' => true, 'multiple' => true));
-
     }
     public function getParent()
     {

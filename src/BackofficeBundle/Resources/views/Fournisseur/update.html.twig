@@ -1,0 +1,51 @@
+{% extends '@Backoffice/base.html.twig' %}
+{% block content %}
+    <div class="formulaire_ajout">
+        <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">CRUD ELEMENTS</div>
+                        <div class="panel-body">
+                            <div class="col-md-6">
+                                {{ form_start(form) }}
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    {{ form_widget(form.Name) }}
+                                </div>
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    {{ form_widget(form.Last_name) }}
+                                </div>
+                                <div class="form-group">
+                                    <label>Societe</label>
+                                    {{ form_widget(form.societe) }}
+                                </div>
+                                <br>
+
+                                <div class="form-group">
+                                    <label>num societe</label>
+                                    {{ form_widget(form.numsociete) }}
+                                </div>
+                                <div class="form-group">
+                                    <label>Secteur </label>
+                                    {{ form_widget(form.secteur) }}
+                                </div>
+
+                                <div class="form-group">
+                                    <label>BIRTH DATE</label>
+                                    {{ form_widget(form.Birth_Date) }}
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" class="btn btn-primary" value="Submit"/>
+                                </div>
+                                {{form_end(form)  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!--/.main-->
+    </div>
+{% endblock %}

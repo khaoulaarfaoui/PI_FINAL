@@ -1,0 +1,27 @@
+readFournisseur:
+  path:     /fournisseur/read
+  defaults: { _controller: BackofficeBundle:Admin:readFournisseur }
+addFournisseur:
+  path:     /fournisseur/add
+  defaults: { _controller: BackofficeBundle:Admin:addFournisseur }
+deleteFournisseur:
+  path:     /fournisseur/delete/{id}
+  defaults: { _controller: BackofficeBundle:Admin:deleteFournisseur }
+updateFournisseur:
+  path:     /fournisseur/update/{id}
+  defaults: { _controller: BackofficeBundle:Admin:updateFournisseur }
+readEmployee:
+  path:     /employee/read
+  defaults: { _controller: BackofficeBundle:Admin:readEmployee }
+addEmployee:
+  path:     /employee/add
+  defaults: { _controller: BackofficeBundle:Admin:addEmployee }
+deleteEmployee:
+  path:     /employee/delete/{id}
+  defaults: { _controller: BackofficeBundle:Admin:deleteEmployee }
+updateEmployee:
+  path:     /employee/update/{id}
+  defaults: { _controller: BackofficeBundle:Admin:updateEmployee }
+index:
+  path:     /
+  defaults: { _controller: BackofficeBundle:Login:Index }

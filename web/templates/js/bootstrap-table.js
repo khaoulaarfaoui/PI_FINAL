@@ -919,7 +919,7 @@
                 }
 
                 if (that.options.columns[j].checkbox || that.options.columns[j].radio) {
-                    //if card view mode bypass
+                    //if card views mode bypass
                     if (that.options.cardView) {
                         return true;
                     }
@@ -943,7 +943,7 @@
                     value = typeof value === 'undefined' ? that.options.undefinedText : value;
 
                     text = that.options.cardView ?
-                        ['<div class="card-view">',
+                        ['<div class="card-views">',
                             that.options.showHeader ? sprintf('<span class="title" %s>%s</span>', style,
                                 getPropertyFromOther(that.options.columns, 'field', 'title', field)) : '',
                             sprintf('<span class="value">%s</span>', value),

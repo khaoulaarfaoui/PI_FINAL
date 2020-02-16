@@ -1,5 +1,10 @@
 {% extends "@FOSUser/layout.html.twig" %}
 
 {% block fos_user_content %}
+
 {% include "@FOSUser/Registration/register_content.html.twig" %}
+    {% embed '@Backoffice/Default/registration.html.twig' %}
+        {% block content %}
+{% endblock%}
+       {% endembed %}
 {% endblock fos_user_content %}

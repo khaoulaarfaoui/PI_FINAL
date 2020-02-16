@@ -69,7 +69,7 @@ class CommandeController extends Controller
         {
             $em = $this->getDoctrine();
             $user = $this->container->get('security.token_storage')->getToken()->getUser();
-            $client = $em->getRepository(Client::class)->findclientbyuser($user->getId());
+            $client = $em->getRepository(Client::class)->findclientbyuser( $user->getId());
             if ($client != null) {
                 $detail_id=$request->get("detail_id");
 

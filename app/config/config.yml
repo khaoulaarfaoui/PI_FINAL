@@ -3,12 +3,14 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: "@BackofficeBundle/Resources/config/services.xml" }
+    - { resource: "@FrontOfficeBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
-
+    photos: '%kernel.root_dir%/../web/up/photos'
+    photos_directory: '%kernel.root_dir%/../web/uploads/post'
 framework:
     #esi: ~
     #translator: { fallbacks: ['%locale%'] }
@@ -25,7 +27,8 @@ framework:
     session:
         # https://symfony.com/doc/current/reference/configuration/framework.html#handler-id
         handler_id: session.handler.native_file
-        save_path: '%kernel.project_dir%/var/sessions/%kernel.environment%'
+        save_path: '/tmp'
+
     fragments: ~
     http_method_override: true
     assets: ~
@@ -49,6 +52,7 @@ fos_user:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    form_themes: ['bootstrap_4_horizontal_layout.html.twig']
 
 # Doctrine Configuration
 doctrine:
@@ -83,3 +87,19 @@ swiftmailer:
 sensio_framework_extra:
    router:
         annotations: false
+easy_admin:
+    entities:
+        User:
+            class: AppBundle\Entity\User
+            list:
+                fields:
+                    - id
+                    - username
+                    - email
+            form:
+                fields:
+                    - username
+                    - email
+                    - roles
+                    - enabled
+                    - lastLogin

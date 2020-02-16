@@ -1,5 +1,5 @@
-
-{%  block body %}
+{% extends '@Blog/base.html.twig' %}
+{% block content %}
     <link href="{{ asset('css2/bootstrap2.min.css') }}" rel="stylesheet">
     <!--external css-->
     <link href="{{ asset('css2/font-awesome.css')}}" rel="stylesheet" />
@@ -7,11 +7,9 @@
     <link href="{{ asset('css2/style.css')}}" rel="stylesheet">
     <link href="{{ asset('css2/style-responsive.css')}}" rel="stylesheet">
     <!-- blueimp Gallery styles -->
-    <link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
     <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
     <link rel="stylesheet" href="{{ asset('css2/jquery.fileupload.css')}}">
     <link rel="stylesheet" href="{{ asset('css2/jquery.fileupload-ui.css')}}">
-<h1> Create your post !!!</h1>
     {{ form_start(Form) }}
 
     {{ form_widget(Form) }}

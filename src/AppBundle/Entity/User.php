@@ -10,18 +10,12 @@ use Doctrine\ORM\Mapping as ORM;
 class User extends BaseUser
 {
 
-    const ROLE_SUPER_ADMIN = 'ROLE_SUPER_ADMIN';
-    const ROLE_ADMIN = 'ROLE_ADMIN';
-    const ROLE_USER = 'ROLE_USER';
-
-
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-
     /**
      * @ORM\Column(type="string")
      */
@@ -30,10 +24,6 @@ class User extends BaseUser
      * @ORM\Column(type="string")
      */
     protected $last_name;
-    /**
-     * @ORM\Column(type="string")
-     */
-    protected $type;
 
     /**
      * @return mixed
@@ -100,27 +90,9 @@ class User extends BaseUser
         return $this->last_name;
     }
 
-    /**
-     * Set type
-     *
-     * @param string $type
-     *
-     * @return User
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
 
-        return $this;
-    }
 
-    /**
-     * Get type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
+
+
+
 }

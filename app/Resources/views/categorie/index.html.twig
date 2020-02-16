@@ -1,47 +1,5 @@
-{% extends 'base.html.twig' %}
-{#
-{% block body %}
-    <h1>Categories list</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Id_categorie</th>
-                <th>Nomcategorie</th>
-                <th>Descriptioncategorie</th>
-                <th>Typestockage</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for categorie in categories %}
-            <tr>
-                <td><a href="{{ path('categorie_show', { 'id_categorie': categorie.id_categorie }) }}">{{ categorie.idcategorie }}</a></td>
-                <td>{{ categorie.nomCategorie }}</td>
-                <td>{{ categorie.descriptionCategorie }}</td>
-                <td>{{ categorie.typeStockage }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('categorie_show', { 'id_categorie': categorie.id_categorie }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('categorie_edit', { 'id_categorie': categorie.id_categorie }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('categorie_new') }}">Create a new categorie</a>
-        </li>
-    </ul>
-{% endblock %}#}
-{% block body %}
+{% extends '@Backoffice/base.html.twig' %}
+{% block content %}
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>

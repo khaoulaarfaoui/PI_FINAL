@@ -25,7 +25,7 @@ delete_commande:
     defaults: {_controller: StockBundle:commande:delete }
 
 stock_homepagecom:
-    path:     /commande
+    path:     /commandes
     defaults: { _controller: StockBundle:commande:new}
 
 stock_comindex:

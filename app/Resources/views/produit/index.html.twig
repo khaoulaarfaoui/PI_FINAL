@@ -1,57 +1,5 @@
-{% extends 'base.html.twig' %}
-{#
-{% block body %}
-    <h1>Produits list</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Reference</th>
-                <th>Nomproduit</th>
-                <th>Descriptionproduit</th>
-                <th>Quantite</th>
-                <th>Prixunitaire</th>
-                <th>Prixvente</th>
-                <th>Datefabrication</th>
-                <th>Dateexpiration</th>
-                <th>Imageproduit</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for produit in produits %}
-            <tr>
-                <td><a href="{{ path('produit_show', { 'reference': produit.reference }) }}">{{ produit.reference }}</a></td>
-                <td>{{ produit.nomProduit }}</td>
-                <td>{{ produit.descriptionProduit }}</td>
-                <td>{{ produit.quantite }}</td>
-                <td>{{ produit.prixUnitaire }}</td>
-                <td>{{ produit.prixVente }}</td>
-                <td>{{ produit.dateFabrication|date('Y-m-d')  }}</td>
-                <td>{{ produit.dateExpiration |date('Y-m-d') }}</td>
-                <td>{{ produit.imageProduit }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('produit_show', { 'reference': produit.reference }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('produit_edit', { 'reference': produit.reference }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('produit_new') }}">Create a new produit</a>
-        </li>
-    </ul>
-{% endblock %}#}
-{% block body %}
+{% extends '@Backoffice/base.html.twig' %}
+{% block content %}
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>

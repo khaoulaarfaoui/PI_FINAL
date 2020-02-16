@@ -4,7 +4,7 @@ namespace FrontOfficeBundle\Controller;
 
 use FrontOfficeBundle\Entity\Client;
 use FrontOfficeBundle\Entity\Detail_Panier;
-use FrontOfficeBundle\Entity\Produit;
+use StockBundle\Entity\Produit;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -13,7 +13,7 @@ class FrontOfficeController extends Controller
     public function readAction(Request $request)
     {   $em=$this->getDoctrine();
         $user = $this->container->get('security.token_storage')->getToken()->getUser();
-        $client =$em->getRepository(Client::class)->findclientbyuser( $user->getId());
+        $client =$em->getRepository(client::class)->findclientbyuser($user->getId());
         if ($client!= null){
 
             $produit_id=$request->get("produit_id");
@@ -26,7 +26,7 @@ class FrontOfficeController extends Controller
                 $detail->setQte($qte);
                 $detail->setClient($client);
                 $detail->setPanier(null);
-                $produit = $em->getRepository(\StockBundle\Entity\produit::class)->find($produit_id);
+                $produit = $em->getRepository(produit::class)->find($produit_id);
                 $detail->setProduit($produit);
                 $em->getManager()->persist($detail);
                 $em->getManager()->flush();
@@ -35,9 +35,7 @@ class FrontOfficeController extends Controller
             }
 
 
-
-
-            $tab=$em->getRepository(\StockBundle\Entity\produit ::class)->findAll();
+            $tab=$em->getRepository(produit ::class)->findAll();
 
             return $this->render('@FrontOffice/Default/index1.html.twig',array('produit'=>$tab));
 
