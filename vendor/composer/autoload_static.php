@@ -52,6 +52,7 @@ class ComposerStaticInit82786c427dd4f6fcb2cc087cc47727c0
             'Symfony\\Bridge\\PhpUnit\\' => 23,
             'Symfony\\Bridge\\Monolog\\' => 23,
             'Symfony\\Bridge\\Doctrine\\' => 24,
+            'Stripe\\' => 7,
             'Sensio\\Bundle\\GeneratorBundle\\' => 30,
             'Sensio\\Bundle\\FrameworkExtraBundle\\' => 35,
             'Sensio\\Bundle\\DistributionBundle\\' => 33,
@@ -65,6 +66,7 @@ class ComposerStaticInit82786c427dd4f6fcb2cc087cc47727c0
             'Psr\\Container\\' => 14,
             'Psr\\Cache\\' => 10,
             'Pagerfanta\\' => 11,
+            'PackageVersions\\' => 16,
         ),
         'M' => 
         array (
@@ -205,6 +207,10 @@ class ComposerStaticInit82786c427dd4f6fcb2cc087cc47727c0
         array (
             0 => __DIR__ . '/..' . '/symfony/symfony/src/Symfony/Bridge/Doctrine',
         ),
+        'Stripe\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/stripe/stripe-php/lib',
+        ),
         'Sensio\\Bundle\\GeneratorBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/sensio/generator-bundle',
@@ -244,6 +250,10 @@ class ComposerStaticInit82786c427dd4f6fcb2cc087cc47727c0
         'Pagerfanta\\' => 
         array (
             0 => __DIR__ . '/..' . '/pagerfanta/pagerfanta/src/Pagerfanta',
+        ),
+        'PackageVersions\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ocramius/package-versions/src/PackageVersions',
         ),
         'Monolog\\' => 
         array (

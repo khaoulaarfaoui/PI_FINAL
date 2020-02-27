@@ -14,4 +14,8 @@ class detail_commandeRepository extends \Doctrine\ORM\EntityRepository
         $query=$this->getEntityManager()->createQuery("SELECT c FROM FrontOfficeBundle:detail_commande c where c.Commande ='$id' ");
         return $query->getResult();
     }
+    public function  findDetailsByCommande($id){
+        $query=$this->getEntityManager()->createQuery("SELECT c FROM FrontOfficeBundle:detail_commande c where c.Commande ='$id' ");
+        return $query->getResult();
+    }
 }

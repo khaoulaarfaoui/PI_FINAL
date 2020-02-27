@@ -10,4 +10,7 @@ namespace FrontOfficeBundle\Repository;
  */
 class paiementRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function  findpaimentbydetail($id){
+        $query=$this->getEntityManager()->createQuery("SELECT c FROM FrontOfficeBundle:detail_commande c where c.Commande ='$id' ");
+        return $query->getResult();
 }

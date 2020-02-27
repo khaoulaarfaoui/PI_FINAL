@@ -22,3 +22,15 @@ update:
 supp:
   path:     /supp/{id}
   defaults: { _controller: FrontOfficeBundle:detail:supp}
+chalba9ElFonfon:
+  path:     /chalba9ElFonfon/{commande_id}
+  defaults: { _controller: FrontOfficeBundle:payement:pay}
+readpaiement:
+    path:     /readpaiement
+    defaults: { _controller: FrontOfficeBundle:Commande:read}
+ajax_search:
+    path: /reads
+    defaults: { _controller: FrontOfficeBundle:FrontOffice:search}
+coup:
+    path: /coup
+    defaults: { _controller: FrontOfficeBundle:FrontOffice:coup}

@@ -10,4 +10,8 @@ namespace FrontOfficeBundle\Repository;
  */
 class couponRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function  findcouponbynum($id){
+        $query=$this->getEntityManager()->createQuery("SELECT c FROM FrontOfficeBundle:coupon c where c.numero ='$id' ");
+        return $query->getOneOrNullResult();
+    }
 }

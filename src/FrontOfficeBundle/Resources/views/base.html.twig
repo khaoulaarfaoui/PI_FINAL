@@ -24,6 +24,22 @@
     <link rel="stylesheet" href="{{ asset('templateFront/css/slick.css') }} ">
     <!-- style CSS -->
     <link rel="stylesheet" href="{{ asset('templateFront/css/style.css') }} ">
+    <style>
+        .main_menu .cart i:after {
+            position: absolute;
+            border-radius: 50%;
+            background-color: #f13d80;
+            width: 14px;
+            height: 14px;
+            right: -8px;
+            top: -8px;
+            content: "{{ panierNb }}";
+            text-align: center;
+            line-height: 15px;
+            font-size: 10px;
+            color: #fff;
+        }
+    </style>
 </head>
 
 <body>
@@ -33,7 +49,7 @@
         <div class="row align-items-center">
             <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="navbar-brand" href="index.html"> <img src="{{ asset('templateFront/img/logo.png') }}" alt="logo"> </a>
+                    <a class="navbar-brand" href="{{ path('read') }}"> <img src="{{ asset('templateFront/img/logo.png') }}" alt="logo"> </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -43,18 +59,13 @@
                     <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="index.html">Home</a>
+                                <a class="nav-link" href="{{path('read')}}">Home</a>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
-                                   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Shop
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
-                                    <a class="dropdown-item" href="category.html"> shop category</a>
-                                    <a class="dropdown-item" href="single-product.html">product details</a>
-
-                                </div>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{path('readdetail')}}">Shop</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{path('readcommande')}}">Commandes</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_3"
@@ -315,5 +326,6 @@
 <script src="{{ asset('templateFront/js/mail-script.js') }} "></script>
 <!-- custom js -->
 <script src="{{ asset('templateFront/js/custom.js') }} "></script>
+{% block script %}{% endblock %}
 </body>
 </html>

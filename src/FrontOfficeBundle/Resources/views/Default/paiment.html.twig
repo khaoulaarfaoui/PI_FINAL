@@ -1,0 +1,198 @@
+{% extends '@FrontOffice/base.html.twig' %}
+{% block content %}
+
+    <section class="checkout_area padding_top">
+        <div class="container">
+
+            <div class="cupon_area">
+                <div class="check_title">
+                    <h2>
+                        Have a coupon?
+                        <a href="#">Click here to enter your code</a>
+                    </h2>
+                </div>
+                <input  id="numcp" type="text" placeholder="Enter coupon code" />
+                <button class="tp_btn" id="coup">Apply Coupon</button>
+            </div>
+            <div class="billing_details">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h3>Billing Details</h3>
+                        <form class="row contact_form" action="#" method="post" novalidate="novalidate">
+                            <div class="col-md-6 form-group p_star">
+                                <input type="text" class="form-control" id="first" name="name" />
+                                <span class="placeholder" data-placeholder="First name"></span>
+                            </div>
+                            <div class="col-md-6 form-group p_star">
+                                <input type="text" class="form-control" id="last" name="name" />
+                                <span class="placeholder" data-placeholder="Last name"></span>
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" id="company" name="company" placeholder="Company name" />
+                            </div>
+                            <div class="col-md-6 form-group p_star">
+                                <input type="text" class="form-control" id="number" name="number" />
+                                <span class="placeholder" data-placeholder="Phone number"></span>
+                            </div>
+                            <div class="col-md-6 form-group p_star">
+                                <input type="text" class="form-control" id="email" name="compemailany" />
+                                <span class="placeholder" data-placeholder="Email Address"></span>
+                            </div>
+                            <div class="col-md-12 form-group p_star">
+                                <select class="country_select">
+                                    <option value="1">Country</option>
+                                    <option value="2">Country</option>
+                                    <option value="4">Country</option>
+                                </select>
+                            </div>
+                            <div class="col-md-12 form-group p_star">
+                                <input type="text" class="form-control" id="add1" name="add1" />
+                                <span class="placeholder" data-placeholder="Address line 01"></span>
+                            </div>
+                            <div class="col-md-12 form-group p_star">
+                                <input type="text" class="form-control" id="add2" name="add2" />
+                                <span class="placeholder" data-placeholder="Address line 02"></span>
+                            </div>
+                            <div class="col-md-12 form-group p_star">
+                                <input type="text" class="form-control" id="city" name="city" />
+                                <span class="placeholder" data-placeholder="Town/City"></span>
+                            </div>
+                            <div class="col-md-12 form-group p_star">
+                                <select class="country_select">
+                                    <option value="1">District</option>
+                                    <option value="2">District</option>
+                                    <option value="4">District</option>
+                                </select>
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" id="zip" name="zip" placeholder="Postcode/ZIP" />
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <div class="creat_account">
+                                    <input type="checkbox" id="f-option2" name="selector" />
+                                    <label for="f-option2">Create an account?</label>
+                                </div>
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <div class="creat_account">
+                                    <h3>Shipping Details</h3>
+                                    <input type="checkbox" id="f-option3" name="selector" />
+                                    <label for="f-option3">Ship to a different address?</label>
+                                </div>
+                                <textarea class="form-control" name="message" id="message" rows="1"
+                                          placeholder="Order Notes"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-4">
+                        <form class="row contact_form" novalidate="novalidate">
+                        <div class="order_box">
+                            <h2>Your Order</h2>
+                            <ul class="list">
+                                <li>
+                                    <a href="#">Product
+                                        <span>Total</span>
+                                    </a>
+                                </li>
+                                {% set total = 0 %}
+                                {% for t in detail_commande %}
+                                    {%  set total = total +  t.produit.prixVente*t.qteC %}
+                                <li>
+                                    <a href="#">{{ t.Produit.nomProduit }}
+                                        <span class="middle">x {{ t.qteC }}</span>
+                                        <span class="last">$ {{ t.Produit.prixVente * t.qteC}}</span>
+                                    </a>
+                                </li>
+                                {% endfor %}
+
+                            </ul>
+                            <ul class="list list_2">
+                                <li>
+                                    <a href="#">Subtotal
+                                        <span>${{total}}</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">Shipping
+                                        <span id="red">Reduction: 0 %</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">Total
+                                        <span id = "total">${{total - (total*(0/100))}}</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="payment_item">
+                                <div class="radion_btn">
+                                    <input type="radio" id="f-option5" name="selector" />
+                                    <label for="f-option5">Card payments</label>
+                                    <div class="check"></div>
+                                </div>
+
+
+                                    <div class="col-md-12 form-group p_star">
+                                        <input type="text" class="form-control" id="company" name="cardNumber"  placeholder="424242424242"/>
+
+                                    </div>
+                                    <div class="col-md-6 form-group p_star">
+                                        <input type="text" class="form-control" id="first" name="expire" placeholder="MM/YYYY"/>
+                                    </div>
+                                    <div class="col-md-6 form-group p_star">
+                                        <input type="text" class="form-control" id="last" name="cvc" placeholder="CVC"/>
+                                    </div>
+                                <input type="text" class="form-control" id="nt" hidden="hidden" name="nt" />
+                                <input type="text" class="form-control" id="nt" hidden="hidden" name="cp" />
+
+
+                            </div>
+                            <div class="creat_account">
+                                <input type="checkbox" id="f-option4" name="selector" />
+                                <label for="f-option4">I’ve read and accept the </label>
+                                <a href="#">terms & conditions*</a>
+                            </div>
+                            <input type="submit" class="btn_3" value="Proceed to Paypal"/>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+{% block script %}
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            var searchRequest = null;
+            $("#coup").click(function() {
+
+                var value = $("#numcp").val();
+                $.ajax({
+                        type: "GET",
+                        url: "{{ path('coup') }}",
+                        data: {
+                            'q' : value
+                        },
+                        success: function(msg){
+                            if(msg > 0)
+                            {
+                                $("#red").html("Reduction: "+msg+" %");
+                                var t = {{total }}
+                                var n = t - (t*(msg/100));
+                                $("#total").html("$"+n)
+                                $("#nt").val(n);
+                                $("#cp").val(value);
+                            }
+                            else
+                            {
+                                alert("Coupon invalide !!!!!!!");
+                            }
+
+                        }
+                    });
+
+            });
+        });
+    </script>
+{% endblock %}

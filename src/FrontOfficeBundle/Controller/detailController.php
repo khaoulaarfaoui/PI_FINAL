@@ -32,7 +32,7 @@ class detailController extends Controller
 
             $tab = $em->getRepository(Detail_Panier ::class)->findAll();
 
-            return $this->render('@FrontOffice/panier.html.twig', array('details' => $tab));
+            return $this->render('@FrontOffice/panier.html.twig', array('details' => $tab,"panierNb"=>count($tab)));
 
 
         }

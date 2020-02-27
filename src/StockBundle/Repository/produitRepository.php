@@ -10,4 +10,9 @@ namespace StockBundle\Repository;
  */
 class produitRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function  findEntitiesByString($str){
+        $query=$this->getEntityManager()->createQuery("SELECT c FROM StockBundle:produit c where c.nomProduit LIKE :str")->setParameter('str', '%'.$str.'%');
+        return $query->getResult();
+    }
 }

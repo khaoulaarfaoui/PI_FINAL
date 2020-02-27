@@ -5,7 +5,31 @@
       <div class="row justify-content-center">
         <div class="col-lg-12">
           <div class="section_tittle text-center">
-            <h2>awesome <span>shop</span></h2>
+            <h2>Search Products <span>shop</span></h2>
+            <div class="col-md-12 form-group">
+              <input type="text" class="form-control" id="search" name="search" placeholder="nom du produit" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="product_list_slider owl-carousel">
+            <div class="single_product_list_slider">
+              <div class="row align-items-center justify-content-between entitiesNav" >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="product_list section_padding">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-12">
+          <div class="section_tittle text-center">
+            <h2>All Products <span>shop</span></h2>
           </div>
         </div>
       </div>
@@ -15,20 +39,24 @@
             <div class="single_product_list_slider">
               <div class="row align-items-center justify-content-between">
                 {% for t in produit %}
-                <div class="col-lg-3 col-sm-6">
-                  <form>
-                  <div class="single_product_item">
-                    <img src="{{ asset('uploads/produit/' ~ t.photoProduit) }}" alt="">
-                    <div class="single_product_text">
-                      <h4>{{t.nomProduit}}</h4>
-                      <h3>${{t.prixVente}}</h3>
-                      <input type="text" name="qte" />
-                      <input hidden="hidden" name="produit_id" value="{{ t.reference }}">
-                      <input type="submit" value="Ajouter"/>
-                    </div>
+                  <div class="col-lg-3 col-sm-6">
+                    <form>
+                      <div class="">
+                        <img src="{{ asset('uploads/post/' ~ t.photoProduit) }}" alt="">
+                        <div class="single_product_text">
+                          <h4>{{t.nomProduit}}</h4>
+                          <h3>${{t.prixVente}}  </h3>
+                          <div class="col-md-6 form-group p_star">
+                          <input type="text" class="form-control" name="qte" />
+                          </div>
+                          <input hidden="hidden" name="produit_id" value="{{ t.reference }}">
+                          <div class="col-md-6 form-group ">
+                          <input type="submit" class="form-control" value="Ajouter"/>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
                   </div>
-                  </form>
-                </div>
                 {% endfor %}
               </div>
             </div>
@@ -38,4 +66,56 @@
     </div>
   </section>
 
+{% endblock %}
+
+{% block script %}
+  <script type="text/javascript">
+    jQuery(document).ready(function() {
+      var searchRequest = null;
+      $("#search").keyup(function() {
+        var minlength = 3;
+        var that = this;
+        var value = $(this).val();
+        if (value.length >= minlength ) {
+          if (searchRequest != null)
+            searchRequest.abort();
+          searchRequest = $.ajax({
+            type: "GET",
+            url: "{{ path('ajax_search') }}",
+            data: {
+              'q' : value
+            },
+            success: function(msg){
+              var result = JSON.parse(msg)
+
+              //we need to check if the value is the same
+              $(".entitiesNav").html('');
+
+                $.each(JSON.parse(result), function(idx, value) {
+console.log(value);
+                  $(".entitiesNav").append('<div class="col-lg-3 col-sm-6">'+
+                                '<form>'+
+                                '<div class="">'+
+                                '<img src="/finalpi/web/uploads/post/'+value.photoProduit+'" />'+
+                                '<div class="single_product_text">'+
+                                '<h4>'+value.nomProduit+'</h4>'+
+                                '<h3>$'+value.prixVente+'</h3>'+
+                          '<div class="col-md-6 form-group p_star">'+
+                                '<input type="text"  class="form-control" name="qte" />'+
+                          '</div>'+
+                                '<input hidden="hidden" name="produit_id" value="'+value.reference+'">'+
+                          '<div class="col-md-6 form-group p_star">'+
+                                '<input type="submit" class="form-control"  value="Ajouter"/>'+
+                          '</div>'+
+                                '</div>'+
+                                '</div>'+
+                                '</form>'+
+                                '</div>');
+                });
+            }
+          });
+        }
+      });
+    });
+  </script>
 {% endblock %}

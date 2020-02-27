@@ -38,33 +38,9 @@ class CommandeController extends Controller
             }
 
             $em->getManager()->flush();
-            return $this->redirectToRoute("read");
+            return $this->redirectToRoute("chalba9ElFonfon",array('commande_id'=>$commande->getId()));
         }
-        {
-            $em = $this->getDoctrine();
-            $user = $this->container->get('security.token_storage')->getToken()->getUser();
-            $client = $em->getRepository(Client::class)->findclientbyuser($user->getId());
-            if ($client != null) {
-                $detail_id = $request->get("detail_id");
-
-
-                if (isset($detail_id)) {
-
-                    $detail = $em->getRepository(Detail_Panier::class)->find($detail_id);
-
-                    $em->getManager()->remove($detail);
-                    $em->getManager()->flush();
-                    return $this->redirectToRoute("readdetail");
-
-                }
-            }
-
-            $tab = $em->getRepository(Detail_Panier ::class)->findAll();
-
-            return $this->render('@FrontOffice/detail.html.twig', array('details' => $tab));
-
-
-        }}
+       }
         public function readAction(Request $request)
         {
             $em = $this->getDoctrine();
@@ -98,11 +74,14 @@ class CommandeController extends Controller
             }
 
 
+            $tab1 = $em->getRepository(Detail_Panier ::class)->findAll();
+            return $this->render('@FrontOffice/Default/commande.html.twig', array('commandes' => $array, "dates" => $array1, "panierNb"=>count($tab1)));
 
-            return $this->render('@FrontOffice/Default/commande.html.twig', array('commandes' => $array, "dates" => $array1));
+
 
 
         }
+
 
 
 
